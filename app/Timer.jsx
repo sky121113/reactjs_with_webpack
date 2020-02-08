@@ -28,7 +28,6 @@ class Timer extends React.Component<Props,States> {
   tick = () => {
     this.setState({secondsElapsed: this.state.secondsElapsed + 1});
     this.setState({nowTime: this.state.nowTime + 1000});
-
     let dd = new Date(this.state.nowTime);
     var uu = new Date(this.state.nowTime).toLocaleTimeString();
     this.setState({nowDate: dd.getFullYear()+"-"+(dd.getMonth()+1)+"-"+dd.getDate()+" "+dd.getHours()+":"+dd.getMinutes()+":"+dd.getSeconds()});
