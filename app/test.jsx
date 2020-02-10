@@ -1,14 +1,24 @@
+// @flow
 import React from 'react';
 
-const name = 'mama';
+type Props = {
+  name: string
+}
+const HelloName = (props:Props) => {
+  const { name } = props;
+  return (
+    <h1>
+      Hello,
+      { name }
+      ！
+    </h1>
+  );
+};
+
 const element = () => (
   <div>
-    <h1>
-      Hello
-      {' '}
-      {name}
-      !
-    </h1>
+    {<HelloName name="mama" />}
+    {<HelloName name="mader" />}
     <h2>Nice to meet you!</h2>
   </div>
 );
