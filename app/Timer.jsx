@@ -8,7 +8,7 @@ type States = {
   nowDate :string
 }
 class Timer extends React.Component<Props, States> {
-  interval:any;
+  interval: any;
 
   constructor(props:Props) {
     super(props);
@@ -32,6 +32,7 @@ class Timer extends React.Component<Props, States> {
   }
 
   // 累加器方法，每一秒被呼叫後就會使用 setState() 更新內部 state，讓 Component 重新 render
+  // 箭頭函式
   tick = () => {
     // 解構賦予用法
     // const { nowTime } = this.state;
