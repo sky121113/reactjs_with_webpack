@@ -5,9 +5,7 @@ import React from 'react';
 type Props = {};
 type States = {
   secondsElapsed: number,
-  nowTime: number,
-  nowDate :string,
-  nowDate1123 :string
+  nowDate :string
 }
 class Timer extends React.Component<Props, States> {
   interval:any;
@@ -19,9 +17,7 @@ class Timer extends React.Component<Props, States> {
     // 初始 state，等於 ES5 中的 getInitialState
     this.state = {
       secondsElapsed: 0,
-      nowTime: (+new Date()),
-      nowDate: '',
-      nowDate1123: new Date().toLocaleTimeString(),
+      nowDate: new Date().toLocaleTimeString(),
     };
   }
 
@@ -37,22 +33,18 @@ class Timer extends React.Component<Props, States> {
 
   // 累加器方法，每一秒被呼叫後就會使用 setState() 更新內部 state，讓 Component 重新 render
   tick = () => {
+    // 解構賦予用法
+    // const { nowTime } = this.state;
     this.setState((prevState) => ({
       secondsElapsed: prevState.secondsElapsed + 1,
-      nowTime: prevState.nowTime + 1000,
     }));
-    const { nowTime } = this.state;
-    // const dd = new Date(this.setState(() => this.state.nowTime));
-    const dd = new Date(nowTime);
-    const uu = new Date(nowTime).toLocaleTimeString();
-    this.setState({ nowDate: `${dd.getFullYear()}-${dd.getMonth() + 1}-${dd.getDate()} ${dd.getHours()}:${dd.getMinutes()}:${dd.getSeconds()}` });
-    this.setState({ nowDate1123: uu });
+    this.setState({ nowDate: new Date().toLocaleTimeString() });
   }
 
   // render 為 class Component 中唯一需要定義的方法，其回傳 component 欲顯示的內容
   render() {
     const {
-      secondsElapsed, nowDate, nowDate1123,
+      secondsElapsed, nowDate,
     } = this.state;
     return (
       <div>
@@ -63,10 +55,6 @@ class Timer extends React.Component<Props, States> {
         <div>
           now Time :
           {nowDate}
-        </div>
-        <div>
-          now Time :
-          {nowDate1123}
         </div>
       </div>
     );
