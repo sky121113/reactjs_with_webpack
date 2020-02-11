@@ -1,10 +1,7 @@
 // @flow
 import React from 'react';
 
-type Props = {
-  name: string
-}
-const HelloName = (props:Props) => {
+const HelloName = (props:{name:string}) => {
   const { name } = props;
   return (
     <h1>
@@ -15,7 +12,7 @@ const HelloName = (props:Props) => {
   );
 };
 
-const element = () => (
+const Element = () => (
   <div>
     {<HelloName name="mama" />}
     {<HelloName name="mader" />}
@@ -23,4 +20,33 @@ const element = () => (
   </div>
 );
 
-export default element;
+class CheckButton extends React.Component<{}, {count:number}> {
+  constructor(props:{}) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+  }
+
+  writeConsole = () => {
+    this.setState((prevProps) => ({ count: prevProps.count + 1 }));
+    console.log('點了點了點了');
+  }
+
+  render() {
+    const { count } = this.state;
+    return (
+      <div>
+        <input type="button" onClick={this.writeConsole} value="點我看console" />
+        <div>
+          點了
+          { count }
+          次
+          {' '}
+        </div>
+      </div>
+    );
+  }
+}
+
+export { Element, CheckButton };
