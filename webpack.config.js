@@ -9,7 +9,7 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 module.exports = {
 // 這個webpack打包的對象，這裡面加上剛剛建立的index.js
-  entry: ['./app/index.js', './app/app.jsx'],
+  entry: ['./app/index.js', './app/app.jsx', './app/message.jsx'],
   output: {
     // publicPath: '/dist/',
     path: `${__dirname}/dist`,
