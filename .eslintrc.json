@@ -26,7 +26,9 @@
     "rules": {
         "no-console": "off",
         "linebreak-style": "off",
-        "no-tabs": "off"
+        "no-tabs": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "no-return-assign": "off"
     }
     
 }
