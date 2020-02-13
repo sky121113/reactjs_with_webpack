@@ -29,7 +29,8 @@
         "no-tabs": "off",
         "jsx-a11y/label-has-associated-control": "off",
         "no-return-assign": "off",
-        "max-classes-per-file": "off"
+        "max-classes-per-file": "off",
+        "import/no-useless-path-segments": "off"
     }
     
 }
